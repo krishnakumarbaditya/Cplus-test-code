@@ -25,6 +25,30 @@ void prime(int no)
         cout<<no<<"is not a prime number";
 }
 
+//2. Define a function to find the highest value digit in a given number.
+#include<iostream>
+using namespace std;
+int highest(int);
+int main()
+{
+    cout<<"find the highest value digit in a given number."<<endl;
+    cout<<"Enter the number ";
+    int no;
+    cin>>no;
+    cout<<"Highest value in the "<<no<<" is "<<highest(no);
+}
+int highest(int n)
+{
+    int max=-1;
+    while(n)
+    {
+        if(max <= n%10)
+            max = n%10;
+            n = n/10;
+    }
+    return max;
+}
+
 //3. Define a function to calculate x raised to the power y.
 #include<iostream>
 #include<math.h>
@@ -46,6 +70,51 @@ void power(int no,int no1)
     int i;
     cout<<no<<" raised to the power "<<no1<<" is "<<pow(no,no1);
 }
+
+//4. Define a function to print Pascal Triangle up to N lines.
+#include<iostream>
+using namespace std;
+int fact(int);
+int comb(int,int);
+int main()
+{
+    int i,j,n;
+    cout<<"print Pascal Triangle up to N lines."<<endl;
+    cout<<"Enter the number upto print Pascal Triangle up to N lines : ";
+    cin>>n;
+    for(i=0;i<=n;i++)
+    {
+        for(j=0;j<=i;j++)
+        {
+            int k=0;
+            if(j==0)
+            {
+               while(k++ <= (n/2 - i+1))
+               {
+                   cout<<" ";
+               }
+            }
+            cout<<comb(i,j)<<" ";
+        }
+        cout<<endl;
+    }
+}
+int fact(int n)
+{
+    int i,fact1=1;
+    for(i=1;i<=n;i++)
+    {
+        fact1=fact1*i;
+    }
+    return fact1;
+}
+int comb(int n,int r)
+{
+    int comb1;
+    comb1=fact(n)/((fact(r)*fact(n-r)));
+    return comb1;
+}
+
 
 //5. Define a function to check whether a given number is a term in a Fibonacci series or not.
 #include<iostream>
