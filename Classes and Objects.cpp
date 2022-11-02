@@ -130,7 +130,7 @@ Reverse of a Number using class.
 using namespace std;
 class ReverseNumber
 {
-public:
+private:
     int revs=0,rem;
 public:
     void rev(int no)
@@ -161,7 +161,7 @@ Count number of times a function is called.
 using namespace std;
 class Square
 {
-public:
+private:
     int sqr,count=0;
 public:
     void square(int no)
