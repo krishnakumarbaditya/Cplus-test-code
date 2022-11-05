@@ -248,3 +248,163 @@ int main()
 
     return 0;
 }
+
+/*
+7. Define a class Box and write a program to enter length, breadth and height and
+initialise objects using constructor also define member functions to calculate volume
+of the box.
+
+*/
+#include<iostream>
+using namespace std;
+class Box
+{
+private:
+    float Length,Breadth,Height,Volume;
+public:
+
+    Box(float length,float breadth,float height)
+    {
+        Length=length;
+        Breadth=breadth;
+        Height=height;
+    }
+    void volume()
+    {
+        Volume=Length*Breadth*Height;
+    }
+    void display()
+    {
+        cout<<"calculate volume of the box "<<endl;
+        cout<<Volume<<" cubic cm"<<endl;
+    }
+
+};
+
+int main()
+{
+    Box b(12,15,3);
+    b.volume();
+    b.display()    ;
+    return 0;
+}
+
+/*
+8. Define a class Bank and define member functions to read principal , rate of interest
+and year. Another member functions to calculate simple interest and display it.
+Initialise all details using constructor.
+
+*/
+#include<iostream>
+using namespace std;
+class Bank
+{
+private:
+    float Principal,Year,SI;
+    static int Roi;
+public:
+
+    Bank()
+    {
+        Principal=0;
+        Roi=0;
+        Year=0;
+    }
+    void read(float principal,float roi,float year)
+    {
+        Principal=principal;
+        Roi=roi;
+        Year=year;
+    }
+    int simpleinterest()
+    {
+        SI=(Principal*Roi*Year);
+        return SI;
+    }
+
+};
+int Bank::Roi=0;
+int main()
+{
+    Bank b;
+    b.read(2000.0,4.5f,6);
+    cout<<"Simple Interest is "<<b.simpleinterest();
+    return 0;
+}
+
+/*
+9. Define a class Bill and define its member function get() to take detail of customer ,
+calculateBill() function to calculate electricity bill using below tariff :
+Upto 100 unit RS. 1.20 per unit
+From 100 to 200 unit RS. 2 per unit
+Above 200 units RS. 3 per unit.
+
+*/
+#include<iostream>
+using namespace std;
+class Bill
+{
+private:
+    float UNIT,electricityBill;
+
+public:
+    void get(float unit)
+    {
+        UNIT=unit;
+    }
+    int calculateBill()
+    {
+        if(UNIT<100)
+            electricityBill=UNIT*1.20;
+        else if(UNIT>=100 && UNIT<200)
+            electricityBill=100*1.20+(UNIT-100)*2;
+        else
+            electricityBill=100*3.20+(UNIT-200)*3;
+        return electricityBill;
+    }
+
+};
+int main()
+{
+    Bill cs1;
+    cs1.get(250);
+    cout<<"Electricity Bill Is "<<cs1.calculateBill();
+    return 0;
+}
+
+/*
+10. Define a class StaticCount and create a static variable. Increment this variable in a
+function and call this 3 times and display the result
+*/
+#include<iostream>
+using namespace std;
+class StaticCount
+{
+private:
+    static int cnt;
+public:
+    StaticCount()
+    {
+        cnt=0;
+    }
+    int inc_count()
+    {
+        cnt++;
+    }
+    void display()
+    {
+        cout<<"Increment "<<cnt<<" times."<<endl;
+    }
+
+};
+int StaticCount::cnt;
+int main()
+{
+    StaticCount s1,s2,s3;
+    s1.inc_count();
+    s2.inc_count();
+    s3.inc_count();
+    s1.display();
+
+    return 0;
+}
