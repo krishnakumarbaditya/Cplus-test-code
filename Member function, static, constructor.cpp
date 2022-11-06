@@ -177,32 +177,27 @@ using namespace std;
 class Date
 {
 private:
-    int HR,MN,SEC;
+    int dd,mm,yy;
 public:
 
-    Date(int h,int m,int s)
+    Date(int day,int month,int year)
     {
-        HR=h;
-        MN=m;
-        SEC=s;
+        dd=31;
+        mm=12;
+        yy=2015;
+        cout<<"Date object has been created----"<<endl;
     }
     void display()
     {
-        normalize();
-        cout<<HR<<" : "<<MN<<" : "<<SEC<<endl;
+        cout<<"Entered date is :: ";
+        cout<<dd<<" - "<<mm<<" - "<<yy<<endl;
     }
-    void normalize()
-    {
-        MN = MN  + SEC/60;
-        SEC = SEC % 60;
-        HR = HR + MN/60;
-        MN = MN % 60;
-    }
+
 };
 
 int main()
 {
-    Date D(3,45,65);
+    Date D(3,11,2020);
     D.display();
 
     return 0;
