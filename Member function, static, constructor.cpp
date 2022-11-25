@@ -296,19 +296,18 @@ class Bank
 {
 private:
     float Principal,Year,SI;
-    static int Roi;
+    static float Roi;
 public:
 
     Bank()
     {
         Principal=0;
-        Roi=0;
+        Roi=4.5f;
         Year=0;
     }
-    void read(float principal,float roi,float year)
+    void read(float principal,float year)
     {
         Principal=principal;
-        Roi=roi;
         Year=year;
     }
     int simpleinterest()
@@ -318,12 +317,15 @@ public:
     }
 
 };
-int Bank::Roi=0;
+float Bank::Roi=0;
 int main()
 {
-    Bank b;
-    b.read(2000.0,4.5f,6);
-    cout<<"Simple Interest is "<<b.simpleinterest();
+    Bank b,b1;
+    b.read(2000.0,6);
+    b1.read(4000.0,6);
+    cout<<"Simple Interest is "<<b.simpleinterest()<<endl;
+    cout<<"Simple Interest is "<<b1.simpleinterest();
+
     return 0;
 }
 
